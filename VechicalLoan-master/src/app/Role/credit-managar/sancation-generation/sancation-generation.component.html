@@ -1,0 +1,178 @@
+<div class="card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Customer Id</label>
+                <input type="text" class="form-control form-control-lg" value="{{customerdata.customerId}}"
+                    aria-label="readonly input example" readonly />
+            </div>
+
+            <div class="col-md-4">
+                <label>Annual Income</label>
+                <input type="text" class="form-control form-control-lg"
+                    value="{{customerdata.customerFinancialData.monthlyIncome*12}}" aria-label="readonly input example"
+                    readonly />
+            </div>
+
+
+            <div class="col-md-4">
+                <label>Loan Required</label>
+                <input type="text" class="form-control form-control-lg"
+                    value="{{customerdata.customerFinancialData.customerTotalLoanRequired}}"
+                    aria-label="readonly input example" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>Cibil Score :</label>
+                <input type="text" class="form-control form-control-lg"
+                    value="{{customerdata.customerCibilScore.cibilScore}}" aria-label="readonly input example"
+                    readonly />
+            </div>
+
+            <div class="col-md-4">
+                <label>Vehicle Price :</label>
+                <input type="text" class="form-control form-control-lg" value="{{customerdata.dealerData.vehiclePrice}}"
+                    aria-label="readonly input example" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>What we Offer :</label>
+                <input type="text" class="form-control form-control-lg"
+                    value="{{customerdata.customerFinancialData.monthlyIncome*30}}" aria-label="readonly input example"
+                    readonly />
+            </div>
+
+            <div class="col-md-4">
+                <label>EMI :</label>
+                <input type="text" class="form-control form-control-lg" value="{{emihtml}}"
+                    aria-label="readonly input example" readonly />
+            </div>
+
+            <div class="col-md-4">
+                <label>Ammount with Intrest :</label>
+                <input type="text" class="form-control form-control-lg" value="{{totalRepaymenthtml}}"
+                    aria-label="readonly input example" readonly />
+            </div>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+
+
+    <div class="container">
+        <form class="example-form" [formGroup]="emicheckform" (ngSubmit)="emicheck()">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Loan Amount</mat-label>
+                            <input matInput formControlName="loanAmount" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Rate Of Interest</mat-label>
+                            <input matInput formControlName="rateOfInterest" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Tenure (Months)</mat-label>
+                            <input matInput formControlName="Tenure" required />
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                    <button class="button-save" mat-raised-button color="primary">Check EMI</button>
+                     </div>
+                </div>
+            </mat-card-content>
+        </form>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="card">
+    <div class="container">
+        <form class="example-form" [formGroup]="sanctionLetterForm" (ngSubmit)="generatesanctionletter()">
+            <mat-card-content>
+
+                <div class="row">             
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Customer </mat-label>
+                            <input matInput formControlName="applicantName" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Loan Amount</mat-label>
+                            <input matInput formControlName="loanAmountSanctioned" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Loan Amount With Interest</mat-label>
+                            <input matInput formControlName="loanAmountWithInterest" required />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">              
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Rate Of Interest</mat-label>
+                            <input matInput formControlName="rateOfInterest" required />
+                        </mat-form-field>
+                    </div>
+
+            
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Tenure (Months)</mat-label>
+                            <input matInput formControlName="loanTenure" required />
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>EMI</mat-label>
+                            <input matInput formControlName="monthlyEmiAmount" required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">            
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>InterestType</mat-label>
+                            <input matInput formControlName="interestType" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Mode Of Payment</mat-label>
+                            <input matInput formControlName="modeOfPayment" required />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+
+                <button class="button-save" mat-raised-button color="primary">Save Sanction Letter</button>
+
+            </mat-card-content>
+        </form>
+    </div>
+</div>

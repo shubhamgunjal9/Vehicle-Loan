@@ -1,0 +1,19 @@
+
+<table class="table" >
+    <thead class="heading">
+      <tr><!--10 entities-->        
+        <th scope="col">Installment Number</th> 
+        <th scope="col">Installment Month</th>        
+        <th scope="col">Paid Date</th> 
+        <th scope="col">Payment Status</th>   
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let instammentobj of customerdetails.ledger.installments">
+            <td>{{instammentobj.installmentNumber}}</td>
+            <td>{{instammentobj.installmentMonth}}</td>
+            <td>{{instammentobj.installementPaidDate}}</td>
+            <td>{{instammentobj.paymentStatus}}</td>          
+         </tr>
+      </tbody>
+    </table> 

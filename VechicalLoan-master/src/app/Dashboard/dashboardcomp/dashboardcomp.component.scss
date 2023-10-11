@@ -1,0 +1,110 @@
+// @import "../node_modules/@angular/material/theming";
+// @include mat-core();
+
+// $my-primary: mat-palette();
+
+
+
+mat-toolbar {
+  background: #080079;
+//  background: #2b6777;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #69c8f3c7;// second
+  color: white;
+  border-radius: 10px;
+  padding: 0px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 130px);
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 32px;
+  padding: 10px;
+  overflow: auto;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {  
+  text-decoration: none;
+  width:100%;
+  display: flex;
+    margin-left: 0;
+    // display: flex;
+    padding-left: 0;
+
+    padding-right: 0;
+    font-size: 0.9rem;
+  border-radius: none;
+    color:#69c8f3c7;
+    background-color: #69c8f3c7;
+    border-color: #69c8f3c7;
+
+  mat-icon {
+    margin-left: 8px;
+  }
+}
+
+.log-button{
+    width:90px;
+    margin-left: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+    color: #f2f4f8;
+    
+    background-color:#080079 ;
+    mat-icon {
+        margin-left: 0px;
+      }
+      &:hover {
+        background-color: #69c8f3c7;
+        cursor: pointer;
+        color: #ffffff;
+    };
+
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+ 
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+  color: #080079;
+}
+
+.designation {
+  margin-top: 2px;
+  font-weight: normal;
+  font-size: 0.8rem;
+  color: black;
+}
+
+mat-divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+ul > li {
+  text-decoration: none;
+
+}

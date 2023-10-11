@@ -1,0 +1,48 @@
+
+  <div>  
+    <ul>      
+      <li><input type="button" class="buttonclass1" value="Customer Accepted List" (click)="customerAcceptedList()"></li>      
+      <li><input type="button" class="buttonclass1" value="Loan Disbursment List" (click)="loanDisburseList()"></li>
+      <li><input type="button" class="buttonclass1" value="Ledger Genrated List" (click)="ledgerGenratedList()"></li>
+    </ul>
+
+
+<table class="table" >
+  <thead class="heading">
+    <tr><!--10 entities-->        
+      <th scope="col">customer Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">MiddleName</th>
+      <th scope="col">LastName</th> 
+      <th scope="col">MobileNumber</th>     
+      <th scope="col">Email</th> 
+      <th scope="col">Amount Sanctioned</th> 
+      <th scope="col">Emi</th> 
+      <th scope="col">Tenure</th> 
+      <th scope="col">Account Number</th> 
+      <th scope="col">IFSCCode</th>       
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let singlecustomer of customerdatalist">
+      <td>{{singlecustomer.customerId}}</td>     
+      <td>{{singlecustomer.customerFirstName}}</td>
+      <td>{{singlecustomer.customerMiddleName}}</td>
+      <td>{{singlecustomer.customerLastName}}</td>
+      <td>{{singlecustomer.customerMobileNumber}}</td>
+      <td>{{singlecustomer.customerEmail}}</td>
+      <td>{{singlecustomer.sanctionLetter.loanAmountSanctioned}}</td>
+      <td>{{singlecustomer.sanctionLetter.monthlyEmiAmount}}</td>
+      <td>{{singlecustomer.sanctionLetter.loanTenure}}</td>
+      <td>{{singlecustomer.dealerData.accountNumber}}</td>
+      <td>{{singlecustomer.dealerData.accountIFSCCode}}</td>
+      <td *ngIf="singlecustomer.customerVerificationStatus === 'Customer_Accepted'"><button type="button" class="buttonclass3"   (click)="loandisbursement(singlecustomer.customerId)">Loan Disbursment</button>  
+        <td *ngIf="singlecustomer.customerVerificationStatus === 'Loan_Disbursed'"><button type="button" class="buttonclass3"   (click)="ledgerGenration(singlecustomer.customerId)">Generate Ledger</button>    
+          
+      </td>
+     </tr>
+  </tbody> 
+  </table>
+
+</div>

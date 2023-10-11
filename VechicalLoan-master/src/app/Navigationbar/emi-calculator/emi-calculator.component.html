@@ -1,0 +1,110 @@
+<!-- my new code -->
+
+  <div class="card">
+  <div class="container" #container>
+    <div class="form-container sign-up-container">
+    </div>
+    <div class="form-container sign-in-container">
+      <!-- input list  -->
+      <div id="inputdata" style="margin-top: 20px;">
+        <h1 align="center">EMI Calculator</h1>
+        <h4 align="center">Loan Amount</h4>
+        <div class="loanAmount-input">
+          <input
+            type="number"
+            [(ngModel)]="loanAmount"
+            placeholder="Enter Loan amount.."
+          />
+        </div>
+  
+        <h4 align="center">Interest Rate:(%)</h4>
+        <div class="interest-input">
+          <input type="number" [(ngModel)]="intresttemp" placeholder="Enter IR per year.." />
+        </div>
+  
+        <h4 align="center">Loan Duration(Months):</h4>
+        <div class="tenure-input">
+          <input
+            type="number"
+            [(ngModel)]="tenure"
+            placeholder="Enter loan duration.."
+          />
+        </div>
+        <button style="margin-left: 20px ;" class="input-btn" type="submit" (click)="cal()">Calculate</button>
+        <button style="margin-left: 20px ;" class="input-btn" type="submit" (click)="reset()">Reset</button>
+      </div>
+  
+    </div>
+      <div class="overlay-container">
+       <div class="overlay">
+        
+        <div class="overlay-panel overlay-right">
+           <!-- output list  -->
+          <div id="emi-output">
+            <div class="result">
+             <h4>Monthly Payment ( EMI ):</h4> <h4 style="font-weight:900 ;"> <span>{{ emi | currency : "INR" }}</span></h4> 
+            </div>
+            <div class="result">
+              <h4>Total Repayment:</h4>  <h4 style="font-weight:900;"> <span>{{ totalRepayment | currency : "INR" }}</span></h4>
+            </div>
+            <div class="result">
+              <h4>Total Interest Cost:</h4>
+              <h4 style="font-weight:900 ;"><span>{{ totalInterestCost | currency : "INR" }}</span></h4>
+            </div>
+          </div>
+
+          <!-- pie chart   -->
+      <div id="chart">
+        <apx-chart style="size: 50px;"
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+
+      </div>
+      <button style="margin-left: 20px ;" class="input-btn" (click)="loanenq()" >Loan Enquiry</button>
+   
+        </div>
+      </div>
+   </div>
+  </div>
+
+
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  
+  <!-- <div class="card"> -->
+    <div class="container1" id="features">
+             <div class="col-md-3 feature" >
+                 <i class="glyphicon glyphicon-list-alt"></i>
+                 <h3>Check YourLoan Cibil Score</h3>
+                 <div class="title_border"></div>
+                 <p>Check out your monthly EMI on the basis of your income </p>
+             </div>
+    
+             <div class="col-md-3 feature">
+                <i class="glyphicon glyphicon-ok"></i>
+                <h3>Select your vehicle model and dealer</h3>
+                <div class="title_border"></div>
+                <p>We are here to help you with all the exciting offers. You just dream it we are here to make your dreams come true</p>
+            </div>
+             <div class="col-md-3 feature">
+                 <i class="glyphicon glyphicon-file"></i>
+                 <h3>Complete Your KYC</h3>
+                 <div class="title_border"></div>
+                 <p> Submit the required documents that have been asked</p>
+             </div>
+     
+             <div class="col-md-3 feature">
+                 <i class="glyphicon glyphicon-briefcase"></i>
+                 <h3>Your loan is approved</h3>
+                 <div class="title_border"></div>
+                 <p>Get your loan approved with simple steps</p>
+             </div>	
+            
+            <!-- </div>   -->
+ 
+    </div>
+  

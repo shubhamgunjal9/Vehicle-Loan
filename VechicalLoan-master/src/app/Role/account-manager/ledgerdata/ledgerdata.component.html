@@ -1,0 +1,42 @@
+
+  <div>  
+    <ul>      
+      <li><input type="button" class="buttonclass1" value="Ledger Disbursment List" (click)="loanDisburseList()"></li>
+      <li><input type="button" class="buttonclass1" value="Ledger Generated List" (click)="ledgerGenratedList()"></li>
+      <li><input type="button" class="buttonclass1" value="Defualter List" (click)="defaulterList()"></li>
+    </ul>
+
+<table class="table" >
+  <thead class="heading">
+    <tr><!--10 entities-->        
+      <th scope="col">customer Id</th>
+      <th scope="col">Created Date</th>
+      <th scope="col">tenure</th>
+      <th scope="col">monthlyEMI</th> 
+      <th scope="col">Paid Till Date</th>     
+      <th scope="col">Remaining Amount</th> 
+      <th scope="col">Amount Sanctioned</th> 
+      <th scope="col">Defaulter Count</th> 
+      <th scope="col">Loan End Date</th> 
+      <th scope="col">loan Status</th>          
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let singlecustomer of customerdatalist">
+      <td>{{singlecustomer.customerId}}</td>
+      <td>{{singlecustomer.ledger.ledgerCreatedDate}}</td>  
+      <td>{{singlecustomer.ledger.totalLoanAmount}}</td>      
+      <td>{{singlecustomer.ledger.tenure}}</td>  
+      <td>{{singlecustomer.ledger.monthlyEMI}}</td>  
+      <td>{{singlecustomer.ledger.amountPaidTillDate}}</td>  
+      <td>{{singlecustomer.ledger.remainingAmount}}</td>  
+      <td>{{singlecustomer.ledger.defaulterCount}}</td>  
+      <td>{{singlecustomer.ledger.loanEndDate}}</td>  
+      <td>{{singlecustomer.ledger.loanStatus}}</td>
+      <td *ngIf="singlecustomer.customerVerificationStatus === 'Ledger_Generated'"><button type="button" class="buttonclass3"   (click)="CheckInstallMent(singlecustomer)">Check Installment</button></td>
+      
+  </tbody> 
+  </table>
+
+</div>

@@ -1,0 +1,22 @@
+<body>
+<nav>
+ <ul class="container">
+      <label class="logo">GCappps Finance</label>
+
+      <li><a routerLink="home">Home</a></li>  
+      <li><a routerLink="emiCalculator">EMI Calculator</a></li> 
+      <li><a routerLink="aboutUs">About Us</a></li>
+      <!-- <li><a routerLink="contact"></a></li>               -->
+      <li><a routerLink="loanEnquiry">LoanEnquiry</a></li>
+     
+      <li><a routerLink="faq">FAQ'S</a></li>
+      <!-- <li><a routerLink="interestRate">Interest Rate</a></li> -->
+      <li><a [routerLink]='["/signIN"]'>SignIn</a></li>
+    
+      
+    </ul><!-- .container -->
+    
+</nav>
+  <router-outlet></router-outlet>
+ 
+</body>

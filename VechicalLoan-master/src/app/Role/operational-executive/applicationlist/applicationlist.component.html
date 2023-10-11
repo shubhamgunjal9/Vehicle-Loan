@@ -1,0 +1,39 @@
+<div>  
+      <input type="button" class="buttonclass1" value="Pending Application List" (click)="getAppliedList()">   
+      <input type="button" class="buttonclass1" value="Verified Application List" (click)="verifiedApplication()">   
+      <input type="button" class="buttonclass1" value="Rejected Application List" (click)="rejectedApplication()">   
+
+
+<table class="table" >
+  <thead class="heading">
+    <tr><!--10 entities-->
+      <th scope="col">Customer Id</th>
+      <th scope="col">Enquiry Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th> 
+      <th scope="col">Mobile Number</th>     
+      <th scope="col">Email</th>       
+      <th scope="col">Cibil Score</th>    
+      <th scope="col">Application Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let singlecustomer of customerdatalist">
+      <td>{{singlecustomer.customerId}}</td>
+      <td>{{singlecustomer.enquiryId}}</td>      
+      <td>{{singlecustomer.customerFirstName}}</td>
+      <td>{{singlecustomer.customerMiddleName}}</td>
+      <td>{{singlecustomer.customerLastName}}</td>
+      <td>{{singlecustomer.customerMobileNumber}}</td>
+      <td>{{singlecustomer.customerEmail}}</td>
+      <td>{{singlecustomer.customerCibilScore.cibilScore}}</td>
+      <td>{{singlecustomer.customerVerificationStatus}}</td>      
+      <td><button type="button" class="buttonclass3"
+          (click)="showApplicationData(singlecustomer)">Check Application</button></td>
+     </tr>
+  </tbody> 
+  </table>
+
+</div>

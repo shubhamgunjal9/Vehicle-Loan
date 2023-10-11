@@ -1,0 +1,22 @@
+mat-form-field{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 30px;
+}
+.button-close{
+    justify-self: right;
+    font-size: 15px;
+    border: none;
+    background-color: #69c8f3c7;
+    height: 40px;
+    margin: 50px;
+    // background-color: #FFFFFF;
+    outline: none;
+    color: #0c0b0b;
+    margin-top: 10px;
+    &:hover {
+        background-color: #080079;
+        cursor: pointer;
+        color: #ffffff;
+    };
+}

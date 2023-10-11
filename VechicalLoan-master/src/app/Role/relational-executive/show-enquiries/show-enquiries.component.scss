@@ -1,0 +1,55 @@
+  thead{
+    border-radius: 15px;
+    background-color: #3d2385;
+    color: aliceblue;
+    font-size: 15px;
+}
+ul > li {
+	
+    margin-right: 0;
+      display: inline-block;
+        font-size: 14px;
+        padding: 0 15px;
+        position: relative;
+        width: 32%;
+  }
+
+  
+  .buttonclass2 {
+    justify-self: right;
+    font-size: 18px;
+    border: none;
+    background-color: #69c8f3c7;
+    height: 40px;
+    // margin: 30px;
+    // background-color: #FFFFFF;
+    outline: none;
+    width: 80%;
+    color: #0c0b0b;
+    border-radius: 20px;
+    // margin-top: 10px;
+    &:hover {
+        background-color: #080079;
+        cursor: pointer;
+        color: #ffffff;
+    };
+  }
+  .buttonclass3 {
+    justify-self: right;
+    font-size: 15px;
+    border: none;
+    background-color: #69c8f3c7;
+    height: 40px;
+    // margin: 30px;
+    // background-color: #FFFFFF;
+    outline: none;
+    width: 100%;
+    color: #0c0b0b;
+    border-radius: 20px;
+    // margin-top: 10px;
+    &:hover {
+        background-color: #080079;
+        cursor: pointer;
+        color: #ffffff;
+    };
+  }

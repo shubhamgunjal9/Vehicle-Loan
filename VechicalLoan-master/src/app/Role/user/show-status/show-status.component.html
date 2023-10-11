@@ -1,0 +1,138 @@
+<div class="card">
+  <div class="container">
+    <form class="example-form" [formGroup]="customerInfo" (ngSubmit)="getSingleCustomer()">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Application Id</mat-label>
+            <input matInput formControlName="customerId" required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <input class="button" type="submit" value="Check Status"  mat-raised-button
+            color="primary" />
+        </div>
+        <div class="col-md-4" *ngIf="showme">
+          <mat-label>Application Status :</mat-label>
+          <h3 *ngIf="customerdetails.customerVerificationStatus === 'Applied'" class="Applied">
+            "Your Application is Within a process"
+          </h3>
+          <h3 *ngIf="customerdetails.customerVerificationStatus === 'Verified'" class="Verified">
+            "Document is Verified and Application is in Further Process"
+          </h3>
+          <h3 *ngIf="customerdetails.customerVerificationStatus === 'Rejected'" class="Rejected">
+            "Sorry Your Appliction is Rejected at Document Verfication Contact Our Near Branch"
+          </h3>
+          <h3 *ngIf="
+              customerdetails.customerVerificationStatus === 'Sanction_Genetrated'
+            " class="sanctioned">
+            "Sanction Letter Sent On Your Mail For Accepting Offer Check Below"
+          </h3>
+          <h3 *ngIf="
+              customerdetails.customerVerificationStatus === 'Customer_Accepted'
+            " class="sanctioned">
+            "You already accepted our Offer"
+          </h3>
+          <h3 *ngIf="
+          customerdetails.customerVerificationStatus === 'Customer_Rejected'
+        " class="sanctioned" class="Rejected">
+        "You already Rejected our Offer"
+      </h3>
+        </div>
+        </div>
+    </form>
+
+
+  </div>
+
+  <div *ngIf="showme">
+    <div class="container" class="box" *ngIf="
+        customerdetails.customerVerificationStatus === 'Sanction_Genetrated'
+      ">
+      
+        <!-- <div class="form-group"> -->
+        <div class="row">
+          <div class="col-md-6">
+            <label for="exampleInputEmail1" class="text-uppercase">Sanctioned Date :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.sanctionDate
+              }}" aria-label="readonly input example" readonly />
+          </div>
+
+          <div class="col-md-6">
+            <label for="exampleInputPassword1" class="text-uppercase">Name :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.applicantName
+              }}" aria-label="readonly input example" readonly />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="exampleInputPassword1" class="text-uppercase">Loan Amount :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.loanAmountSanctioned
+              }}" aria-label="readonly input example" readonly />
+          </div>
+
+          <div class="col-md-6">
+            <label for="exampleInputPassword1" class="text-uppercase">Interest Type :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.interestType
+              }}" aria-label="readonly input example" readonly />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="exampleInputPassword1" class="text-uppercase">Rate of Interest :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.rateOfInterest
+              }}" aria-label="readonly input example" readonly />
+          </div>
+
+          <div class="col-md-6">
+            <label  class="text-uppercase">Tenure :</label>
+            <input type="text" class="form-control form-control-lg" value="{{ customerdetails.sanctionLetter.loanTenure }}" aria-label="readonly input example"
+              readonly />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label  class="text-uppercase">Emi :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.monthlyEmiAmount
+              }}" aria-label="readonly input example" readonly />
+          </div>
+
+          <div class="col-md-6">
+            <label  class="text-uppercase">Amount to paid :</label>
+            <input type="text" class="form-control form-control-lg" value="{{
+                customerdetails.sanctionLetter.loanAmountWithInterest
+              }}" aria-label="readonly input example" readonly />
+          </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-md-6">
+            <label class="tacbox">
+              <input id="taccheck" type="checkbox" />
+              I agree to these
+              <a routerLink="termsAndCondition">Terms and Conditions</a>.
+            </label>
+          </div>
+
+      
+        </div>
+
+        <div class="form-check"> 
+          <input type="button" class="buttonclass2" value="Accept Offer" (click)="acceptOffer(customerdetails.customerId)">
+          <input type="button" class="buttonclass2" value="Reject Offer" (click)="rejectOffer(customerdetails.customerId)">          
+          
+        </div>
+      
+    </div>
+  </div>
+</div>

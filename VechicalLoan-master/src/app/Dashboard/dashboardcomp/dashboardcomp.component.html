@@ -1,0 +1,45 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+    GCappps-the key of Happiness
+    
+
+    <button mat-icon-button aria-label="Example icon button with a logout icon" class="log-button" (click)="logout()" ><mat-icon>logout</mat-icon>Logout</button>
+    
+    
+  </mat-toolbar>
+
+<mat-sidenav-container>
+  
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img class="avatar mat-elevation-z8" 
+      src="https://media.licdn.com/dms/image/C5603AQFTl6NOyc3X_Q/profile-displayphoto-shrink_800_800/0/1645121111890?e=1678924800&v=beta&t=oh8Nk_jMJUHxAj2zmxVX_IQQ6CGgR_TgzflDX7xvjQg"/>
+  
+      <h4 class="name">Atul kadam</h4>
+      <h4 class="designation">{{userRole}}</h4>  
+      <mat-divider></mat-divider>
+
+    
+    <ul>        
+        <li routerLinkActive="active" *ngFor="let item of menuItems[0][userRole]">
+            <button mat-button class="menu-button"   class="nav-link" [routerLink]="[userRole,item.key]"> {{item.label}}</button>       
+        <mat-divider></mat-divider>
+    </li>
+         
+     </ul>
+     </mat-sidenav>
+     
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>    
+    </mat-sidenav-content>
+  
+    
+  </mat-sidenav-container>
